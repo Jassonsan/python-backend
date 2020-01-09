@@ -1,5 +1,5 @@
 import psycopg2
-from chat.ChatModel import Chat
+from .ChatModel import Chat
 
 def selectChatById(user, password, host, port, database, chatId):
     ret = False
@@ -22,10 +22,7 @@ def selectChatById(user, password, host, port, database, chatId):
             print("PostgreSQL connection is closed")
     return ret
 def createChat(user, password, host, port, database, chatId, firstname, lastname):
-    exists = selectChatById(user, password, host, port, database, chatId)
-    print('existe ', chatId, ' ', exists)
     if selectChatById(user, password, host, port, database, chatId):
-        print('va a retornar false')
         return False
     else:
         try:

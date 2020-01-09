@@ -1,5 +1,5 @@
 import psycopg2
-from reminder.ReminderModel import Reminder
+from .ReminderModel import Reminder
 
 def selectAllReminders(user, password, host, port, database):
     ret = []
