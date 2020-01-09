@@ -1,5 +1,6 @@
 import psycopg2
 from reminder.ReminderCrud import selectAllReminders, selectRangeReminders
+from chat.ChatCrud  import selectChatById, createChat
 
 user = "plus57"
 password = "Plus57*316"
@@ -10,11 +11,10 @@ def selectAllRemindersI():
     return selectAllReminders(user, password, host, port, database)
 def selectRangeRemindersI(since, to):
     return selectRangeReminders(user, password, host, port, database, since, to)
+def selectChatByIdI(id):
+    return selectChatById(user, password, host, port, database, 842742283)
+def createChatI(id, firstname, lastname):
+    return createChat(user, password, host, port, database, id, firstname, lastname)
 if __name__ == '__main__':
-    records = selectAllRemindersI()
-    for record in records:
-        print(record.reminderId)
-    print('/n END /n')
-    records = selectRangeRemindersI(14, 20)
-    for record in records:
-        print(record.reminderId)
+    chat = createChatI(968761100, 'Sergio','Cardenas')
+    print(chat)

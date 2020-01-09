@@ -35,8 +35,8 @@ def selectRangeReminders(user, password, host, port, database, since, to):
             reminder = Reminder(rem[0], rem[1], rem[2], rem[3], rem[4])
             ret.append(reminder)
     except (Exception, psycopg2.Error) as error :
-        print ("Error on selectAllReminders", error)
-        return None
+        print ("Error on selectRangeReminders", error)
+        ret = None
     finally:
         if(connection):
             cursor.close()
