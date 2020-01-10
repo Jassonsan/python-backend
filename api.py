@@ -10,9 +10,7 @@ api = Api(app)
 class Chat(Resource):
     def post(self):
         try:
-            print(request)
             data = request.get_json()
-            print(data)
             response = selectChatByIdI(data['chatId'])
             return {"data": response}, 200
         except:
